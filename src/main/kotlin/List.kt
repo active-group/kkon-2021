@@ -62,6 +62,12 @@ fun <A> listMap(f: (A) -> A, list: List<A>): List<A> =
         is Cons -> Cons(f(list.first), listMap(f, list.rest))
     }
 
+fun <A> listMap2(list: List<A>, f: (A) -> A): List<A> =
+    when (list) {
+        is Empty -> Empty
+        is Cons -> Cons(f(list.first), listMap(f, list.rest))
+    }
+
 // 1elementig Liste: 17
 val list1 = Cons(17, Empty)
 
