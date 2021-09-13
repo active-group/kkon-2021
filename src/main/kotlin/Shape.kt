@@ -1,8 +1,11 @@
 // Eine geometrische Figur ist eins der folgenden:
+//      ^^^^^^^^^^^^^^^^^^
 // (2D)
 // - Kreis
 // - Quadrat
 // - eine Überlagerung zweier geometrischer Figuren
+//                            ^^^^^^^^^^^^^^^^^^^^^
+//                            Selbstbezug -> rekursiver Aufruf
 
 // 1. Schreibe eine Repräsentation für geometrische Figuren
 // 2. Schreibe eine Funktion/Methode, die für einen Punkt
