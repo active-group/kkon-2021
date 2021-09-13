@@ -7,6 +7,9 @@
 //                            ^^^^^^^^^^^^^^^^^^^^^
 //                            Selbstbezug -> rekursiver Aufruf
 
+// Überlagung: Kombinator
+// Technik: Kombinatorbibliothek
+// DDD: "closure of operations"
 
 // 1. Schreibe eine Repräsentation für geometrische Figuren
 // 2. Schreibe eine Funktion/Methode, die für einen Punkt
@@ -23,3 +26,9 @@ data class Overlay(val shape1: Shape, val shape2: Shape): Shape {
         this.shape1.contains(point) || // enthält shape1 den point?
         this.shape2.contains(point) // enthält shape2 den point?
 }
+
+// Alternative:
+// Es gibt Schiffe mit runder Einflußsphäre
+// Es gibt Schiffe mit quadratischer Einflußsphäre
+// Es gibt Flottenverbände aus Schiffen
+
