@@ -9,7 +9,7 @@ sealed interface List {
 object Empty : List {
     // "nichts"
     // "neutrales Element"
-    override fun sum(): Int = -1
+    override fun sum(): Int = 0
 }
 
 data class Cons(val first: Int, val rest: List) : List {
@@ -17,5 +17,8 @@ data class Cons(val first: Int, val rest: List) : List {
         this.first + this.rest.sum()
 }
 
+// 1elementig Liste: 17
+val list1 = Cons(17, Empty)
+
 // 3elementige Liste: 1, 2, 3
-val list1 = Cons(1, Cons(2, Cons(3, Empty)))
+val list3 = Cons(1, Cons(2, Cons(3, Empty)))
