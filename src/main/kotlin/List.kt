@@ -69,8 +69,15 @@ fun <A> listMap2(list: List<A>, f: (A) -> A): List<A> =
         is Cons -> Cons(f(list.first), listMap2(list.rest, f))
     }
 
-fun <A> listFilter(list: List<A>, f; (A) -> Boolean): List<A> =
-    TODO()
+fun <A> listFilter(list: List<A>, f: (A) -> Boolean): List<A> =
+    when (list) {
+        is Empty -> Empty
+        is Cons ->
+            if (f(list.first))
+                Cons(list.first, listFilter(list.rest, f))
+            else
+                listFilter(list.rest, f) // die gefilterten Elemente aus dem Rest
+    }
 
 // 1elementig Liste: 17
 val list1 = Cons(17, Empty)
