@@ -31,8 +31,12 @@ interface Monoid<A> : Semigroup<A> {
     val neutral: A
 }
 
-class IntAddMonoid : IntAddSemigroup {
-    override
+open class IntAddMonoid : IntAddSemigroup(), Monoid<Int>  {
+    override val neutral = 0
+}
+
+fun <A> objectMonoid() : Monoid<Option<A>> = object : Monoid<Option<A>> {
+
 }
 
 // Kommutativgesetz:
