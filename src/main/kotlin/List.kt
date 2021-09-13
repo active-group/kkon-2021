@@ -50,13 +50,11 @@ fun <A> listIndex(list: List<A>, a: A): Option<Int> =
                 Some(0)
             else {
                 val res = listIndex(list.rest, a)
-
                 when (res) {
                     is None -> None
                     is Some -> Some(1 + res.value)
                 }
             }
-
     }
 
 fun listSum(list: List<Int>): Int =
