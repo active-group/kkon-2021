@@ -42,6 +42,11 @@ fun listSum1(list: List<Int>, acc: Int): Int =
         is Cons -> listSum1(list.rest, acc + list.first)
     }
 
+fun listSumWhile(list: List<Int>): Int = {
+    var acc: Int = 0
+    return acc
+}
+
 // listSum von Cons:
 // - erst listSum(list.rest)
 // - dann list.first + <Ergebnis> :: Kontext
