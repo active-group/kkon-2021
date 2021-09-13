@@ -59,6 +59,5 @@ val parrot1 = Parrot("Hallo", 1)
 fun runOverAnimal(animal: Animal): Animal =
     when (animal) {
         is Dillo -> runOverDillo(animal)
-        is Parrot ->
-            animal.copy(sentence = "")
+        is Parrot -> animal.copy(sentence = "")
     }
