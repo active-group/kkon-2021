@@ -17,4 +17,18 @@
 // Spezialfall: Aufzählung
 enum class Liveness { DEAD, ALIVE }
 
-data class Dillo(val liveness: Liveness, val weight: Int)
+// Zustand des Gürteltiers zu einem bestimmten Zeitpunkt
+data class Dillo(val liveness: Liveness, val weight: Int) {
+    // OO: void
+    fun runOver(): Dillo =
+        // Dillo(Liveness.DEAD, this.weight)
+        this.copy(liveness = Liveness.DEAD)
+}
+
+fun runOverDillo(dillo: Dillo): Dillo =
+    Dillo(Liveness.DEAD, dillo.weight)
+
+// Gürteltier, lebendig, 10kg
+val dillo1 = Dillo(Liveness.ALIVE, 10)
+// totes Gürteltier, 11kg
+val dillo2 = Dillo(Liveness.DEAD, 11)
