@@ -36,11 +36,19 @@ fun <A> contains(list: List<A>, a: A): Boolean =
                 contains(list.rest, a)
     }
 
-sealed interface Option<out A>
+sealed interface Option<out A> {
+    fun <B> map(f: (A) -> B) = optionMap(f, this)
+}
 
 object None : Option<Nothing>
 
 data class Some<out A>(val value: A): Option<A>
+
+fun <A, B> optionMap(f: (A) -> B, option: Option<A>): Option<B> =
+    when (option) {
+        is None -> None
+        is Some -> Some(f(option.value))
+    }
 
 fun <A> listIndex(list: List<A>, a: A): Option<Int> =
     when (list) {
