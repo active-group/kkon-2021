@@ -19,6 +19,12 @@ enum class Liveness { DEAD, ALIVE }
 
 sealed interface Animal {
     fun runOver(): Animal
+
+    fun runOver2(): Animal =
+        when (this) {
+            is Dillo -> runOverDillo(this)
+            is Parrot -> this.copy(sentence = "")
+        }
 }
 
 // Zustand des Gürteltiers zu einem bestimmten Zeitpunkt
