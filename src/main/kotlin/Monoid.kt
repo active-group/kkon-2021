@@ -36,7 +36,8 @@ open class IntAddMonoid : IntAddSemigroup(), Monoid<Int>  {
 }
 
 fun <A> objectMonoid() : Monoid<Option<A>> = object : Monoid<Option<A>> {
-
+    override fun op(x: Option<A>, y: Option<A>): Option<A> = TODO()
+    override val neutral = TODO()
 }
 
 // Kommutativgesetz:
