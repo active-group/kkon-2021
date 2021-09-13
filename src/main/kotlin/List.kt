@@ -5,6 +5,7 @@
 sealed interface List<out A> {
     // fun sum(): Int
     // fun product(): Int
+    // Funktor:
     fun <B> map(f: (A) -> B) = listMap(f, this)
 }
 
@@ -37,6 +38,7 @@ fun <A> contains(list: List<A>, a: A): Boolean =
     }
 
 sealed interface Option<out A> {
+    // Funktor:
     fun <B> map(f: (A) -> B) = optionMap(f, this)
 }
 
@@ -141,6 +143,8 @@ fun runOverAnimals(list: List<Animal>): List<Animal> =
 // Kopieren, Umbenennen, Variablen für Unterschiede, ggf. Parameter
 // double : (Int) -> Int
 // runOverAnimal : (Animal) -> Animal
+// vgl:
+// fun <A, B> optionMap(f: (A) -> B, option: Option<A>): Option<B>
 fun <A, B> listMap(f: (A) -> B, list: List<A>): List<B> =
     when (list) {
         is Empty -> Empty
