@@ -35,6 +35,8 @@ fun listSum(list: List<Int>): Int =
 fun listSum1(list: List<Int>, acc: Int): Int =
     when (list) {
         is Empty -> acc
+        // tail call: Aufruf ohne Kontext
+        // endrekursiver Aufruf
         is Cons -> listSum1(list.rest, acc + list.first)
     }
 
