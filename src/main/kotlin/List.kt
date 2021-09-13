@@ -32,6 +32,19 @@ fun listSum(list: List<Int>): Int =
         is Cons -> list.first + listSum(list.rest)
     }
 
+fun listSum1(list: List<Int>, acc: Int): Int =
+    when (list) {
+        is Empty -> acc
+        is Cons -> listSum1(list.rest, acc + list.first)
+    }
+
+// listSum von Cons:
+// - erst listSum(list.rest)
+// - dann list.first + <Ergebnis> :: Kontext
+// Kontext braucht zur Laufzeit eine Datenstruktur und Speicher
+// oft: Stack
+// JVM: Stack ist klein und fest in der Größe
+
 fun listProduct(list: List<Int>): Int =
     when (list) {
         is Empty -> 1
@@ -47,7 +60,7 @@ fun <A, B> fold(n: B, f: (A, B) -> B, list: List<A>): B =
 
 fun <A> append(list1: List<A>, list2: List<A>): List<A> =
     when (list1) {
-        is Empty -> list2
+        is Empty -> list2  // Sharing zwischen list2 und dem Ergebnis
         is Cons -> Cons(list1.first, // 1
                         append(list1.rest, list2)) // 2 3 4 5 6
     }
