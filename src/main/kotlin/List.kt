@@ -50,8 +50,8 @@ fun <A> listIndex(list: List<A>, a: A): Option<Int> =
                 0
             else {
                 val res = listIndex(list.rest, a)
-                return
-                    when (res) {
+
+                return  when (res) {
                         is None -> None
                         is Some -> Some(1 + res.value)
                     }
