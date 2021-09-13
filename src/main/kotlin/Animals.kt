@@ -20,7 +20,7 @@ enum class Liveness { DEAD, ALIVE }
 sealed interface Animal {
     fun runOver(): Animal
 
-    fun runOver2(): Animal =
+    fun runOver2() =
         when (this) {
             is Dillo -> runOverDillo(this)
             is Parrot -> this.copy(sentence = "")
