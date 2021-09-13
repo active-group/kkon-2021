@@ -44,7 +44,6 @@ fun <A> objectMonoid(aSemigroup: Semigroup<A>) : Monoid<Option<A>> = object : Mo
                     is None -> x
                     is Some -> Some(aSemigroup.op(x.value, y.value))
                 }
-
         }
 
     override val neutral = None
