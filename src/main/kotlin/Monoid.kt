@@ -14,7 +14,7 @@ object intAddSemigroup : Semigroup<Int> {
     override fun op(x: Int, y: Int): Int = x + y
 }
 
-object listSemigroup<A> : Semigroup<List<A>> {
+object <A> listSemigroup<A> : Semigroup<List<A>> {
     override fun op(x: List<A>, y: List<A>): List<A> = append(x, y)
 }
 // neutrales Element:
