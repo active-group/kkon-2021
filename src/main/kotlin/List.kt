@@ -45,17 +45,18 @@ data class Some<out A>(val value: A): Option<A>
 fun <A> listIndex(list: List<A>, a: A): Option<Int> =
     when (list) {
         is Empty -> None
-        is Cons ->
+        is Cons -> {
             if (list.first == a)
-                0
+                return 0
             else {
                 val res = listIndex(list.rest, a)
 
-                return  when (res) {
-                        is None -> None
-                        is Some -> Some(1 + res.value)
-                    }
+                return when (res) {
+                    is None -> None
+                    is Some -> Some(1 + res.value)
+                }
             }
+        }
 
     }
 
