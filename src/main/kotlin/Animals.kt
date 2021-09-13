@@ -17,12 +17,14 @@
 // Spezialfall: Aufzählung
 enum class Liveness { DEAD, ALIVE }
 
-interface Animal
+interface Animal {
+    fun runOver(): Animal
+}
 
 // Zustand des Gürteltiers zu einem bestimmten Zeitpunkt
 data class Dillo(val liveness: Liveness, val weight: Int): Animal {
     // OO: void
-    fun runOver(): Dillo =
+    override fun runOver(): Dillo =
         // Dillo(Liveness.DEAD, this.weight)
         this.copy(liveness = Liveness.DEAD)
 }
@@ -42,7 +44,7 @@ val dillo2 = Dillo(Liveness.DEAD, 11)
 // - Satz
 // - Gewicht
 data class Parrot(val sentence: String, val weight: Int): Animal {
-    fun runOver(): Parrot = this.copy(sentence = "")
+    override fun runOver(): Parrot = this.copy(sentence = "")
 }
 
 // Begrüßungspapagei, 1kg
