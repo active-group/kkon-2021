@@ -39,10 +39,10 @@ fun listProduct(list: List<Int>): Int =
     }
 
 // + : (Int, Int) -> Int
-fun <A, B> xxx(n: B, f: (A, B) -> B, list: List<A>): B =
+fun <A, B> fold(n: B, f: (A, B) -> B, list: List<A>): B =
     when (list) {
         is Empty -> n
-        is Cons -> f(list.first, xxx(n, f, list.rest))
+        is Cons -> f(list.first, fold(n, f, list.rest))
     }
 
 // extension method
