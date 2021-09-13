@@ -47,7 +47,7 @@ fun <A> listIndex(list: List<A>, a: A): Option<Int> =
         is Empty -> None
         is Cons -> {
             if (list.first == a)
-                return 0
+                0
             else {
                 val res = listIndex(list.rest, a)
 
