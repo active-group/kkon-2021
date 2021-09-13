@@ -69,6 +69,9 @@ fun <A> listMap2(list: List<A>, f: (A) -> A): List<A> =
         is Cons -> Cons(f(list.first), listMap2(list.rest, f))
     }
 
+fun <A> listFilter(list: List<A>, f; (A) -> Boolean): List<A> =
+    TODO()
+
 // 1elementig Liste: 17
 val list1 = Cons(17, Empty)
 
