@@ -5,6 +5,7 @@
 sealed interface List<out A> {
     // fun sum(): Int
     // fun product(): Int
+    fun <B> map(f: (A) -> B) = listMap(f, this)
 }
 
 object Empty : List<Nothing> {
