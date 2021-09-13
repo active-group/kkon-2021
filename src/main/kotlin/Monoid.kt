@@ -42,7 +42,7 @@ fun <A> objectMonoid(aSemigroup: Semigroup<A>) : Monoid<Option<A>> = object : Mo
             is Some ->
                 when (y) {
                     is None -> x
-                    is Some(aSemigroup.op(x.value, y.value))
+                    is Some -> Some(aSemigroup.op(x.value, y.value))
                 }
 
         }
