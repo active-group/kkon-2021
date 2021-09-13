@@ -45,6 +45,15 @@ fun <A, B> fold(n: B, f: (A, B) -> B, list: List<A>): B =
         is Cons -> f(list.first, fold(n, f, list.rest))
     }
 
+fun <A> append(list1: List<A>, list2: List<A>): List<A> =
+    when (list1) {
+        is Empty -> list2
+        is Cons -> list1.first
+                   append(list1.rest, list2)
+    }
+
+val list6 = append(list3, Cons(4, Cons(5, Cons(6, Empty))))
+
 // extension method
 fun List<Int>.sum(): Int =
     when (this) {
