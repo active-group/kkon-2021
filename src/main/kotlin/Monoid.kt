@@ -35,9 +35,19 @@ open class IntAddMonoid : IntAddSemigroup(), Monoid<Int>  {
     override val neutral = 0
 }
 
-fun <A> objectMonoid() : Monoid<Option<A>> = object : Monoid<Option<A>> {
-    override fun op(x: Option<A>, y: Option<A>): Option<A> = TODO()
-    override val neutral = TODO()
+fun <A> objectMonoid(aSemigroup: Semigroup<A>) : Monoid<Option<A>> = object : Monoid<Option<A>> {
+    override fun op(x: Option<A>, y: Option<A>): Option<A> =
+        when (x) {
+            is None -> y
+            is Some ->
+                when (y) {
+                    is None -> x
+                    is Some(aSemigroup.op(x.value, y.value))
+                }
+
+        }
+
+    override val neutral = None
 }
 
 // Kommutativgesetz:
