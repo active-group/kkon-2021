@@ -38,17 +38,27 @@ fun List<Int>.sum(): Int =
         is Cons -> this.first + this.rest.sum()
     }
 
+fun double(i: Int): Int = i * 2
 
 fun listDouble(list: List<Int>): List<Int> =
     when (list) {
         is Empty -> Empty
-        is Cons -> Cons(list.first*2, listDouble(list.rest))
+        is Cons -> Cons(double(list.first), listDouble(list.rest))
     }
 
 fun runOverAnimals(list: List<Animal>): List<Animal> =
     when (list) {
         is Empty -> Empty
         is Cons -> Cons(runOverAnimal(list.first), runOverAnimals(list.rest))
+    }
+
+// Kopieren, Umbenennen, Variablen für Unterschiede
+// double : (Int) -> Int
+// runOverAnimal : (Animal) -> Animal
+fun <A> listMap(f: (A) -> A, list: List<A>): List<A> =
+    when (list) {
+        is Empty -> Empty
+        is Cons -> Cons(f(list.first), listMap(f, list.rest))
     }
 
 // 1elementig Liste: 17
