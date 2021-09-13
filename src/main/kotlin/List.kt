@@ -48,8 +48,8 @@ fun <A, B> fold(n: B, f: (A, B) -> B, list: List<A>): B =
 fun <A> append(list1: List<A>, list2: List<A>): List<A> =
     when (list1) {
         is Empty -> list2
-        is Cons -> list1.first
-                   append(list1.rest, list2)
+        is Cons -> Cons(list1.first, // 1
+                        append(list1.rest, list2)) // 2 3 4 5 6
     }
 
 val list6 = append(list3, Cons(4, Cons(5, Cons(6, Empty))))
