@@ -39,3 +39,10 @@ val dillo2 = Dillo(Liveness.DEAD, 11)
 // Ein Papagei hat folgende Eigenschaften:
 // - Satz
 // - Gewicht
+data class Parrot(val sentence: String, val weight: Int) {
+    fun runOver(): Parrot = this.copy(sentence = "")
+}
+
+// Begrüßungspapagei, 1kg
+val parrot1 = Parrot("Hallo", 1)
+
