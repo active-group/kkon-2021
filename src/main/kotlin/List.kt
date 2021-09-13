@@ -37,6 +37,8 @@ fun listSum1(list: List<Int>, acc: Int): Int =
         is Empty -> acc
         // tail call: Aufruf ohne Kontext
         // endrekursiver Aufruf
+        // wird kein Speicher auf dem Stack benötigt
+        // die JVM verbraucht aber trotzdem welchen
         is Cons -> listSum1(list.rest, acc + list.first)
     }
 
