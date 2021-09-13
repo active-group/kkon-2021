@@ -8,5 +8,13 @@
 //                ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 //                (alternative Formulierung: besteht aus)
 //                zusammengesetzte Daten (hier nicht: Komposition)
-// - tot oder lebendig?
+// - tot oder lebendig?     - UND -
 // - Gewicht
+
+// Lebendigkeit: tot ODER lebendig
+// "eins der folgenden"
+// Fallunterscheidung
+// Spezialfall: Aufzählung
+enum class Liveness { DEAD, ALIVE }
+
+data class Dillo(val liveness: Liveness, val weight: Int)
