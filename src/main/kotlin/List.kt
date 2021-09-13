@@ -31,6 +31,7 @@ fun listSum(list: List<Int>): Int =
         is Cons -> list.first + listSum(list.rest)
     }
 
+// extension method
 fun List<Int>.sum(): Int =
     when (this) {
         is Empty -> 0
