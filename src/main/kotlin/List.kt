@@ -9,9 +9,12 @@ sealed interface List {
 
 object Empty : List {
     // "nichts"
-    // "neutrales Element"
+    // "neutrales Element": x + 0 = 0 + x = x
+    // bezüglich der Addition
     override fun sum(): Int = 0
-    override fun product(): Int = 0
+    //                      x * 1 = 1 * x = x
+    // neutrales Element bezüglich der Multiplikation
+    override fun product(): Int = 1
 }
 
 data class Cons(val first: Int, val rest: List) : List {
