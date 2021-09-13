@@ -52,7 +52,8 @@ fun runOverAnimals(list: List<Animal>): List<Animal> =
         is Cons -> Cons(runOverAnimal(list.first), runOverAnimals(list.rest))
     }
 
-// Kopieren, Umbenennen, Variablen für Unterschiede
+// Abstraktion
+// Kopieren, Umbenennen, Variablen für Unterschiede, ggf. Parameter
 // double : (Int) -> Int
 // runOverAnimal : (Animal) -> Animal
 fun <A> listMap(f: (A) -> A, list: List<A>): List<A> =
