@@ -65,7 +65,7 @@ fun <A> listMap(f: (A) -> A, list: List<A>): List<A> =
 fun <A> listMap2(list: List<A>, f: (A) -> A): List<A> =
     when (list) {
         is Empty -> Empty
-        is Cons -> Cons(f(list.first), listMap(f, list.rest))
+        is Cons -> Cons(f(list.first), listMap2(list.rest, f))
     }
 
 // 1elementig Liste: 17
