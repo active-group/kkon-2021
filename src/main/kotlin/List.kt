@@ -7,7 +7,8 @@ sealed interface List<out A> {
     // fun product(): Int
     // Funktor:
     fun <B>     map(f: (A) ->      B) = listMap(f, this)
-    fun <B >flatMap(f: (A) -> List<B>): List<B>
+    // fun <B >flatMap(f: (A) -> List<B>): List<B>
+    // fun <A> ofList(a: A): List<A>
 }
 
 object Empty : List<Nothing> {
