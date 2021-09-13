@@ -34,7 +34,7 @@ fun listSum(list: List<Int>): Int =
 fun List<Int>.sum(): Int =
     when (this) {
         is Empty -> 0
-        is Cons -> list.first + list.rest.sum()
+        is Cons -> this.first + this.rest.sum()
     }
 
 
