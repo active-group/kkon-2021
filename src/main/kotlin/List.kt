@@ -38,6 +38,13 @@ fun listProduct(list: List<Int>): Int =
         is Cons -> list.first * listProduct(list.rest)
     }
 
+// + : (Int, Int) -> Int
+fun xxx(n: Int, f: (Int, Int) -> Int, list: List<Int>): Int =
+    when (list) {
+        is Empty -> n
+        is Cons -> f(list.first, xxx(n, f, list.rest))
+    }
+
 // extension method
 fun List<Int>.sum(): Int =
     when (this) {
