@@ -46,3 +46,8 @@ data class Parrot(val sentence: String, val weight: Int) {
 // Begrüßungspapagei, 1kg
 val parrot1 = Parrot("Hallo", 1)
 
+// Ein Tier ist eins der folgenden
+// - Gürteltier - ODER -
+// - Papagei
+// Fallunterscheidung aus Klassen / zusammengesetzte Daten:
+// gemischte Daten
