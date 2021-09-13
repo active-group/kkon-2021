@@ -56,13 +56,10 @@ fun <A> listIndex(list: List<A>, a: A): Option<Int> =
         is Cons ->
             if (list.first == a)
                 Some(0)
-            else {
-                val res = listIndex(list.rest, a)
-                when (res) {
-                    is None -> None
-                    is Some -> Some(1 + res.value)
+            else
+                listIndex(list.rest, a).map {
+                    i -> i + 1
                 }
-            }
     }
 
 fun listSum(list: List<Int>): Int =
