@@ -17,7 +17,7 @@
 // Spezialfall: Aufzählung
 enum class Liveness { DEAD, ALIVE }
 
-interface Animal {
+sealed interface Animal {
     fun runOver(): Animal
 }
 
@@ -55,3 +55,10 @@ val parrot1 = Parrot("Hallo", 1)
 // - Papagei
 // Fallunterscheidung aus Klassen / zusammengesetzte Daten:
 // gemischte Daten
+
+fun runOverAnimal(animal: Animal): Animal =
+    when (animal) {
+        is Dillo -> runOverDillo(animal)
+        is Parrot ->
+            animal.copy(sentence = "")
+    }
