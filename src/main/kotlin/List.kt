@@ -39,7 +39,7 @@ fun listProduct(list: List<Int>): Int =
     }
 
 // + : (Int, Int) -> Int
-fun <A> xxx(n: A, f: (A, A) -> A, list: List<A>): A =
+fun <A, B> xxx(n: B, f: (A, B) -> B, list: List<A>): B =
     when (list) {
         is Empty -> n
         is Cons -> f(list.first, xxx(n, f, list.rest))
