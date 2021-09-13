@@ -26,6 +26,17 @@ data class Cons<out A>(val first: A, val rest: List<A>) : List<A> {
     //    this.first * this.rest.product()
 }
 
+fun <A> contains(list: List<A>, a: A): Boolean =
+    when (list) {
+        is Empty -> false
+        is Cons ->
+            if (list.first == a)
+                true
+            else
+                contains(list.rest, a)
+
+    }
+
 fun listSum(list: List<Int>): Int =
     when (list) {
         is Empty -> 0
@@ -66,6 +77,7 @@ fun listProduct(list: List<Int>): Int =
     }
 
 // + : (Int, Int) -> Int
+// auch: foldRight, entsprechend: foldLeft
 fun <A, B> fold(n: B, f: (A, B) -> B, list: List<A>): B =
     when (list) {
         is Empty -> n
