@@ -7,6 +7,8 @@ sealed interface List {
 }
 
 object Empty : List {
+    // "nichts"
+    // "neutrales Element"
     override fun sum(): Int = 0
 }
 
