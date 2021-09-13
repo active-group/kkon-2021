@@ -56,7 +56,7 @@ fun runOverAnimals(list: List<Animal>): List<Animal> =
 // Kopieren, Umbenennen, Variablen für Unterschiede, ggf. Parameter
 // double : (Int) -> Int
 // runOverAnimal : (Animal) -> Animal
-fun <A> listMap(f: (A) -> A, list: List<A>): List<A> =
+fun <A, B> listMap(f: (A) -> B, list: List<A>): List<B> =
     when (list) {
         is Empty -> Empty
         is Cons -> Cons(f(list.first), listMap(f, list.rest))
