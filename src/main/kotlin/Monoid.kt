@@ -10,9 +10,11 @@ interface Semigroup<A> {
     fun op(x: A, y: A): A
 }
 
-object intAddSemigroup : Semigroup<Int> {
+class IntAddSemigroup : Semigroup<Int> {
     override fun op(x: Int, y: Int): Int = x + y
 }
+
+val intAddSemigroup = IntAddSemigroup()
 
 fun <A> listSemigroup() = object : Semigroup<List<A>> {
     override fun op(x: List<A>, y: List<A>): List<A> = append(x, y)
@@ -28,5 +30,10 @@ fun <A> listSemigroup() = object : Semigroup<List<A>> {
 interface Monoid<A> : Semigroup<A> {
     val neutral: A
 }
+
+object intAddMonoid : intAddSemigroup {
+    override
+}
+
 // Kommutativgesetz:
 // a + b = b + a
