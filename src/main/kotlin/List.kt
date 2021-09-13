@@ -32,21 +32,21 @@ fun listSum(list: List<Int>): Int =
         is Cons -> list.first + listSum(list.rest)
     }
 
-fun listSum1(list: List<Int>, acc: Int): Int =
+tailrec fun listSum1(list: List<Int>, acc: Int): Int =
     when (list) {
         is Empty -> acc
         // tail call: Aufruf ohne Kontext
         // endrekursiver Aufruf
         // wird kein Speicher auf dem Stack benötigt
-        // die JVM verbraucht aber trotzdem welchen
+        // die JVM verbraucht aber trotzdem welchen, AUSSER BEI tailrec
         is Cons -> listSum1(list.rest, acc + list.first)
     }
 
-fun listSumWhile(list0: List<Int>): Int {
+fun listSumWhile(var list: List<Int>): Int {
     var acc: Int = 0
-    var list = list0
     while (list is Cons) {
         acc = acc + list.first
+        list = list.rest
     }
     return acc
 }
