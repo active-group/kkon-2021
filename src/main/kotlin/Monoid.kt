@@ -10,7 +10,7 @@ interface Semigroup<A> {
     fun op(x: A, y: A): A
 }
 
-class IntAddSemigroup : Semigroup<Int> {
+open class IntAddSemigroup : Semigroup<Int> {
     override fun op(x: Int, y: Int): Int = x + y
 }
 
@@ -31,7 +31,7 @@ interface Monoid<A> : Semigroup<A> {
     val neutral: A
 }
 
-object intAddMonoid : intAddSemigroup {
+class IntAddMonoid : IntAddSemigroup {
     override
 }
 
