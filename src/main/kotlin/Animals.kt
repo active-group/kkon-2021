@@ -26,9 +26,16 @@ data class Dillo(val liveness: Liveness, val weight: Int) {
 }
 
 fun runOverDillo(dillo: Dillo): Dillo =
-    Dillo(Liveness.DEAD, dillo.weight)
+    // Dillo(Liveness.DEAD, dillo.weight)
+    dillo.copy(liveness = Liveness.DEAD)
+
+
 
 // Gürteltier, lebendig, 10kg
 val dillo1 = Dillo(Liveness.ALIVE, 10)
 // totes Gürteltier, 11kg
 val dillo2 = Dillo(Liveness.DEAD, 11)
+
+// Ein Papagei hat folgende Eigenschaften:
+// - Satz
+// - Gewicht
