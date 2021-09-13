@@ -6,7 +6,8 @@ sealed interface List<out A> {
     // fun sum(): Int
     // fun product(): Int
     // Funktor:
-    fun <B> map(f: (A) -> B) = listMap(f, this)
+    fun <B>     map(f: (A) ->      B) = listMap(f, this)
+    fun <B >flatMap(f: (A) -> List<B>): List<B>
 }
 
 object Empty : List<Nothing> {
@@ -40,6 +41,7 @@ fun <A> contains(list: List<A>, a: A): Boolean =
 sealed interface Option<out A> {
     // Funktor:
     fun <B> map(f: (A) -> B) = optionMap(f, this)
+    // fun <B> flatMap(f: (A) -> Option<B>): Option<B>
 }
 
 object None : Option<Nothing>
