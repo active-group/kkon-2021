@@ -44,10 +44,10 @@ data class Some<out A>(val value: A): Option<A>
 
 fun <A> listIndex(list: List<A>, a: A): Option<Int> =
     when (list) {
-        is Empty -> return None
+        is Empty -> None
         is Cons -> {
             if (list.first == a)
-                return 0
+                Some(0)
             else {
                 val res = listIndex(list.rest, a)
 
