@@ -42,8 +42,9 @@ tailrec fun listSum1(list: List<Int>, acc: Int): Int =
         is Cons -> listSum1(list.rest, acc + list.first)
     }
 
-fun listSumWhile(list: List<Int>): Int {
+fun listSumWhile(list0: List<Int>): Int {
     var acc: Int = 0
+    var list = list0
     while (list is Cons) {
         acc = acc + list.first
         list = list.rest
