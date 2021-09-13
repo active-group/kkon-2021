@@ -39,6 +39,18 @@ fun List<Int>.sum(): Int =
     }
 
 
+fun listDouble(list: List<Int>): List<Int> =
+    when (list) {
+        is Empty -> Empty
+        is Cons -> Cons(list.first*2, listDouble(list.rest))
+    }
+
+fun runOverAnimals(list: List<Animal>): List<Animal> =
+    when (list) {
+        is Empty -> Empty
+        is Cons -> Cons(runOverAnimal(list.first), runOverAnimals(list.rest))
+    }
+
 // 1elementig Liste: 17
 val list1 = Cons(17, Empty)
 
