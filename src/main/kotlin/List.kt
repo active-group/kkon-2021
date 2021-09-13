@@ -4,17 +4,22 @@
 //                                                         ^^^^^
 sealed interface List {
     fun sum(): Int
+    fun product(): Int
 }
 
 object Empty : List {
     // "nichts"
     // "neutrales Element"
     override fun sum(): Int = 0
+    override fun product(): Int = 0
 }
 
 data class Cons(val first: Int, val rest: List) : List {
     override fun sum(): Int =
         this.first + this.rest.sum()
+
+    override fun product(): Int =
+        this.first * this.rest.product()
 }
 
 // 1elementig Liste: 17
