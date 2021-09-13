@@ -52,8 +52,6 @@ fun <A> append(list1: List<A>, list2: List<A>): List<A> =
                         append(list1.rest, list2)) // 2 3 4 5 6
     }
 
-val list6 = append(list3, Cons(4, Cons(5, Cons(6, Empty))))
-
 // extension method
 fun List<Int>.sum(): Int =
     when (this) {
@@ -106,3 +104,6 @@ val list1 = Cons(17, Empty)
 
 // 3elementige Liste: 1, 2, 3
 val list3 = Cons(1, Cons(2, Cons(3, Empty)))
+
+val list6 = append(list3, Cons(4, Cons(5, Cons(6, Empty))))
+
